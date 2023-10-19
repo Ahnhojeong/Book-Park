@@ -4,6 +4,7 @@ import LibraryPage from "@pages/LibraryPage";
 
 import HeaderLayout from "./HeaderLayout";
 import SearchPage from "@pages/SearchPage";
+import BookDetailPage from "@pages/BookDetailPage";
 
 function Router() {
   return (
@@ -12,6 +13,7 @@ function Router() {
         <Route index element={<HomePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library" element={<LibraryPage />} />
+        <Route path="/book/:id" element={<BookDetailPage />} />
       </Route>
     </Routes>
   );
