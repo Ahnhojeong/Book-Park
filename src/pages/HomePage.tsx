@@ -1,4 +1,4 @@
-import BodyLayout from "@components/layout/BodyLayout";
+import BodyLayout from "@components/ui/BodyLayout";
 import NewBooksList from "@components/home/NewBooksList";
 
 function HomePage() {

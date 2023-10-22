@@ -13,7 +13,7 @@ const Container = styled.div`
   `}
 `;
 
-function HeaderLayout() {
+function Header() {
   return (
     <Container>
       <Navigation />
@@ -22,4 +22,4 @@ function HeaderLayout() {
   );
 }
 
-export default HeaderLayout;
+export default Header;

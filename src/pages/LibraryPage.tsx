@@ -1,4 +1,4 @@
-import BodyLayout from "@components/layout/BodyLayout";
+import BodyLayout from "@components/ui/BodyLayout";
 import LibraryList from "@components/library/LibraryList";
 import ScrollBox from "@components/ui/ScrollBody";
 import TitleBox from "@components/ui/TitleBox";

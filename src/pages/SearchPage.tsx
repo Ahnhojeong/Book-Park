@@ -1,4 +1,4 @@
-import BodyLayout from "@components/layout/BodyLayout";
+import BodyLayout from "@components/ui/BodyLayout";
 import CategoryCard from "@components/search/CategoryCard";
 import SearchBar from "@components/search/SearchBar";
 import ScrollBox from "@components/ui/ScrollBody";
