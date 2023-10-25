@@ -7,6 +7,8 @@ module.exports = {
       "@pages": path.resolve(__dirname, "src/pages"),
       "@hooks": path.resolve(__dirname, "src/hooks"),
       "@style": path.resolve(__dirname, "src/style"),
+      "@api": path.resolve(__dirname, "src/api"),
+      "@utils": path.resolve(__dirname, "src/utils"),
     },
   },
 };

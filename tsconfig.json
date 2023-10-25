@@ -21,7 +21,9 @@
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@hooks/*": ["hooks/*"],
-      "@style/*": ["style/*"]
+      "@style/*": ["style/*"],
+      "@api/*": ["api/*"],
+      "@utils/*": ["utils/*"]
     },
     "typeRoots": ["node_modules/@types"]
   },
