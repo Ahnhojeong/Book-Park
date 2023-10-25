@@ -1,10 +1,10 @@
 import BodyLayout from "@components/ui/BodyLayout";
-import NewBooksList from "@components/home/NewBooksList";
+import RecommendBookList from "@components/home/RecommendBookList";
 
 function HomePage() {
   return (
     <BodyLayout>
-      <NewBooksList />
+      <RecommendBookList />
     </BodyLayout>
   );
 }

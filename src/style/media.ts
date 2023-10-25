@@ -1,28 +1,5 @@
 import { CSSProp, css } from "styled-components";
 
-// type MediaQueryProps = {
-//   mobile: number;
-//   tablet: number;
-//   desktop: number;
-// };
-
-// const sizes: MediaQueryProps = {
-//   mobile: 580,
-//   tablet: 768,
-//   desktop: 1024,
-// };
-
-// const MediaQuery = (Object.keys(sizes) as Array<keyof typeof sizes>).reduce(
-//   (acc, label) => {
-//     acc[label] = (style: string) =>
-//       `@media (max-width: ${sizes[label] / 16}em) { ${style} }`;
-//     return acc;
-//   },
-//   {} as { [key in keyof typeof sizes]: (style: string) => CSSProp }
-// );
-
-// export default MediaQuery;
-
 export interface DeviceProps {
   [key: string]: number;
 }

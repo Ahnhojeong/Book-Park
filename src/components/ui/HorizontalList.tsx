@@ -11,6 +11,7 @@ const ListContainer = styled.div`
   gap: 20px;
   justify-content: space-between;
   height: 230px;
+  max-height: 280px;
   overflow: hidden;
 
   ${MediaQuery.mobile`
