@@ -35,8 +35,8 @@ function RecommendBookList() {
         {recommendBooks?.item.map((item: any, index: number) => {
           return (
             <ImageCard
-              key={index}
-              link={"/book/1"}
+              key={item.url}
+              link={`book/${item.title}`}
               imgSrc={item.referenceIdentifier}
               title={item.title}
               contents={item.rights}

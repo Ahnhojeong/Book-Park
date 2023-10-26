@@ -1,14 +1,14 @@
 import { useQuery } from "react-query";
-import { instance } from "@api/instance";
+import { curtureApi } from "@api/instance";
 import { setDataForm } from "@utils/Transform";
 
 const fetchRecommendBooks = () => {
   const paramObj = {
-    serviceKey: process.env.REACT_APP_RECOMMEND_BOOK_API_KEY,
+    serviceKey: process.env.REACT_APP_CURTURE_RECOMMEND_API_KEY,
     numOfRows: 100,
   };
   const inData = setDataForm(paramObj);
-  return instance.get("", { params: inData });
+  return curtureApi.get("/meta4/getKCPG0506", { params: inData });
 };
 
 export const useRecommendBooks = (
