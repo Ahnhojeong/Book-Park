@@ -73,7 +73,7 @@ const GlobalStyles = createGlobalStyle`
 
     div {
       &::-webkit-scrollbar {
-        width: 3px; /* 스크롤바의 너비 */
+        width: 2px; /* 스크롤바의 너비 */
       }
     
       &::-webkit-scrollbar-thumb {
