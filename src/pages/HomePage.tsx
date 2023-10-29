@@ -1,6 +1,7 @@
 import BodyLayout from "@components/ui/BodyLayout";
 import RecommendBookList from "@components/home/RecommendBookList";
 import MonthBookList from "@components/home/MonthBookList";
+import TodayBookList from "@components/home/TodayBookList";
 
 function HomePage() {
   return (
@@ -12,6 +13,7 @@ function HomePage() {
           paddingRight: "10px",
         }}
       >
+        <TodayBookList />
         <RecommendBookList />
         <MonthBookList />
       </div>
