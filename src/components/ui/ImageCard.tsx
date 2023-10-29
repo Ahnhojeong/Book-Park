@@ -60,10 +60,15 @@ type ImageCardType = {
   contents: string;
 };
 
-function ImageCard({ link, imgSrc, title, contents }: ImageCardType) {
+function ImageCard({
+  link = "/book/1",
+  imgSrc,
+  title,
+  contents,
+}: ImageCardType) {
   return (
     <CardContainer>
-      <Link to="/book/1">
+      <Link to={link}>
         <div>
           <Thumbnail>
             <img src={imgSrc} alt={title} />

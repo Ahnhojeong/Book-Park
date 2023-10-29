@@ -3,6 +3,7 @@ import CategoryCard from "@components/search/CategoryCard";
 import SearchBar from "@components/search/SearchBar";
 import ScrollBox from "@components/ui/ScrollBody";
 import TitleBox from "@components/ui/TitleBox";
+import TrendBookList from "@components/search/TrendBookList";
 
 function SearchPage() {
   return (
@@ -12,8 +13,9 @@ function SearchPage() {
       </div>
 
       <ScrollBox>
-        <TitleBox title="모두 둘러보기" />
-        <CategoryCard />
+        <TitleBox title="실시간 인기 급상승 도서" />
+
+        <TrendBookList />
       </ScrollBox>
     </BodyLayout>
   );
