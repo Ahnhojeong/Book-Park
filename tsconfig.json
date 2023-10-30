@@ -23,7 +23,8 @@
       "@hooks/*": ["hooks/*"],
       "@style/*": ["style/*"],
       "@api/*": ["api/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@store/*": ["store/*"]
     },
     "typeRoots": ["node_modules/@types"]
   },
