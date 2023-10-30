@@ -7,7 +7,6 @@ type BodyLayoutType = {
 const Container = styled.div`
   flex: 9;
   padding: 1rem;
-  margin: 1rem;
   overflow: hidden;
 `;
 
