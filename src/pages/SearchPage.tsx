@@ -1,9 +1,7 @@
 import BodyLayout from "@components/ui/BodyLayout";
-import CategoryCard from "@components/search/CategoryCard";
 import SearchBar from "@components/search/SearchBar";
 import ScrollBox from "@components/ui/ScrollBody";
-import TitleBox from "@components/ui/TitleBox";
-import TrendBookList from "@components/search/TrendBookList";
+import SearchBody from "@components/search/SearchBody";
 
 function SearchPage() {
   return (
@@ -13,9 +11,7 @@ function SearchPage() {
       </div>
 
       <ScrollBox>
-        <TitleBox title="실시간 인기 급상승 도서" />
-
-        <TrendBookList />
+        <SearchBody />
       </ScrollBox>
     </BodyLayout>
   );
