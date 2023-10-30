@@ -1,5 +1,8 @@
+import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartIconActive } from "@heroicons/react/24/solid";
 import { useBookDetail } from "@hooks/useBookDetail";
 import { MediaQuery } from "@style/media";
+import { useState } from "react";
 import { styled } from "styled-components";
 
 const DetailContainer = styled.div`
@@ -49,10 +52,10 @@ const BookDetailBox = styled.div`
 const BookDetailInfo = styled.div`
   box-sizing: border-box;
   &:nth-of-type(1) {
-    height: 130px;
+    height: 150px;
   }
   &:nth-of-type(2) {
-    height: calc(100% - 130px);
+    height: calc(100% - 150px);
     overflow-y: auto;
     padding-right: 10px;
     margin-top: 20px;
@@ -90,11 +93,28 @@ const BookDetailInfo = styled.div`
   `}
 `;
 
+const LikeButton = styled.div`
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > svg {
+      margin-right: 5px;
+    }
+  }
+`;
+
 type BookDetailType = {
   bookId?: any;
 };
 
 function BookDetail({ bookId = 0 }: BookDetailType) {
+  const [isLike, setIsLike] = useState<boolean>(false);
+
+  const onClickLike = () => {
+    setIsLike(!isLike);
+  };
+
   const onSuccess = () => {
     console.log("데이터 가져오기 후 사이드 이펙트 수행");
   };
@@ -127,7 +147,19 @@ function BookDetail({ bookId = 0 }: BookDetailType) {
             <span>{book.class_nm}</span>
             <h2>{book.bookname}</h2>
             <h4>{`${book.authors} | ${book.publisher}`}</h4>
+
+            <LikeButton>
+              <button type="button" onClick={onClickLike}>
+                {isLike ? (
+                  <HeartIconActive width={25} />
+                ) : (
+                  <HeartIcon width={25} />
+                )}
+                좋아요
+              </button>
+            </LikeButton>
           </BookDetailInfo>
+
           <BookDetailInfo>
             <div>
               <p>{book.description}</p>
