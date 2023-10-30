@@ -58,6 +58,7 @@ type ImageCardType = {
   imgSrc: string;
   title: string;
   contents: string;
+  isNewTab?: boolean;
 };
 
 function ImageCard({
@@ -65,10 +66,15 @@ function ImageCard({
   imgSrc,
   title,
   contents,
+  isNewTab = false,
 }: ImageCardType) {
   return (
     <CardContainer>
-      <Link to={link}>
+      <Link
+        to={link}
+        target={isNewTab ? "_blank" : "_self"}
+        rel={isNewTab ? "noopener noreferrer" : ""}
+      >
         <div>
           <Thumbnail>
             <img src={imgSrc} alt={title} />

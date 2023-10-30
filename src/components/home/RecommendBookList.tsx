@@ -36,7 +36,8 @@ function RecommendBookList() {
           return (
             <ImageCard
               key={item.url}
-              link={`book/${item.title}`}
+              link={`${item.url}`}
+              isNewTab={true}
               imgSrc={item.referenceIdentifier}
               title={item.title}
               contents={item.rights}
