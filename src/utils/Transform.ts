@@ -22,3 +22,18 @@ export function getToday() {
 
   return year + "-" + month + "-" + day;
 }
+
+export const debounce = (callback: any, duration: number) => {
+  let timer: any;
+  return (...args: any) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => callback(...args), duration);
+  };
+};
+
+export function decodeEntity(contents: string) {
+  if (contents != undefined && contents != null && contents != "") {
+    contents = contents.replaceAll(/&lt;/g, "<").replaceAll(/&gt;/g, ">");
+  }
+  return contents;
+}

@@ -1,6 +1,7 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconActive } from "@heroicons/react/24/solid";
 import { useBookDetail } from "@hooks/useBookDetail";
+import useLikeBookStore from "@store/likebook";
 import { MediaQuery } from "@style/media";
 import { useState } from "react";
 import { styled } from "styled-components";
@@ -37,6 +38,10 @@ const BookThumbnailBox = styled.div`
       height: auto;
     `}
   }
+
+  ${MediaQuery.tablet`
+    height: 60%;
+  `}
 `;
 
 const BookDetailBox = styled.div`
@@ -109,10 +114,22 @@ type BookDetailType = {
 };
 
 function BookDetail({ bookId = 0 }: BookDetailType) {
-  const [isLike, setIsLike] = useState<boolean>(false);
+  const { likeBookList, setLikeBookList, resetLikeBookList } =
+    useLikeBookStore();
 
-  const onClickLike = () => {
-    setIsLike(!isLike);
+  const onClickLike = (data: any) => {
+    console.log("onClickLike data -> ", data);
+
+    if (likeBookList[data.isbn13]) {
+      console.log("좋아요를 이미 눌렀어요");
+      const newLikeBookList = { ...likeBookList };
+      delete newLikeBookList[data.isbn13];
+
+      resetLikeBookList(data.isbn13, newLikeBookList);
+    } else {
+      console.log("좋아요");
+      setLikeBookList(data.isbn13, data);
+    }
   };
 
   const onSuccess = () => {
@@ -149,8 +166,13 @@ function BookDetail({ bookId = 0 }: BookDetailType) {
             <h4>{`${book.authors} | ${book.publisher}`}</h4>
 
             <LikeButton>
-              <button type="button" onClick={onClickLike}>
-                {isLike ? (
+              <button
+                type="button"
+                onClick={() => {
+                  onClickLike(book);
+                }}
+              >
+                {likeBookList[book.isbn13] ? (
                   <HeartIconActive width={25} />
                 ) : (
                   <HeartIcon width={25} />
