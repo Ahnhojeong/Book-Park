@@ -10,7 +10,7 @@ function BookDetailPage() {
   return (
     <BodyLayout>
       <BackButton />
-      <BookDetail bookId={id} />
+      <BookDetail bookId={Number(id)} />
     </BodyLayout>
   );
 }

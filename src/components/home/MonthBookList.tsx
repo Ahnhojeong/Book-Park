@@ -2,6 +2,7 @@ import HorizontalList from "@components/ui/HorizontalList";
 import ImageCard from "@components/ui/ImageCard";
 import TitleBox from "@components/ui/TitleBox";
 import { useMonthBooks } from "@hooks/useMonthBooks";
+import { ILinkBookList } from "types/book";
 
 function MonthBookList() {
   const onSuccess = () => {
@@ -32,7 +33,7 @@ function MonthBookList() {
       />
 
       <HorizontalList>
-        {monthBooks?.map((item: any, index: number) => {
+        {monthBooks?.map((item: ILinkBookList) => {
           return (
             <ImageCard
               key={item.url}

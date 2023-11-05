@@ -3,7 +3,6 @@ import { HeartIcon as HeartIconActive } from "@heroicons/react/24/solid";
 import useLikeBookStore from "@store/likebook";
 import { MediaQuery } from "@style/media";
 import { decodeEntity } from "@utils/Transform";
-import { useEffect } from "react";
 import { styled } from "styled-components";
 
 const Li = styled.li`

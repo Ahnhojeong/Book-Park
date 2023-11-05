@@ -2,6 +2,7 @@ import HorizontalList from "@components/ui/HorizontalList";
 import ImageCard from "@components/ui/ImageCard";
 import TitleBox from "@components/ui/TitleBox";
 import { useTodayBestBooks } from "@hooks/useTodayBestBooks";
+import { IBookItem } from "types/book";
 
 function TodayBookList() {
   const onSuccess = () => {
@@ -32,14 +33,15 @@ function TodayBookList() {
       />
 
       <HorizontalList>
-        {todayBooks?.map((item: any, index: number) => {
+        {todayBooks?.map((item: IBookItem, index: number) => {
+          const { doc } = item;
           return (
             <ImageCard
               key={index}
-              link={`/book/${item.doc.isbn13}`}
-              imgSrc={item.doc.bookImageURL}
-              title={item.doc.bookname}
-              contents={item.doc.authors}
+              link={`/book/${doc.isbn13}`}
+              imgSrc={doc.bookImageURL}
+              title={doc.bookname}
+              contents={doc.authors}
             />
           );
         })}

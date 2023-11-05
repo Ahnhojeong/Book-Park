@@ -1,6 +1,7 @@
 import { libraryPlazaApi } from "@api/instance";
 import { getToday, setDataForm } from "@utils/Transform";
 import { useQuery } from "react-query";
+import { IRankBookList } from "types/book";
 
 const fetchHotTrendBooks = () => {
   const paramObj = {
@@ -23,11 +24,13 @@ export const useHotTrendBooks = (
     onError: onError,
     refetchOnWindowFocus: false,
     select: (data) => {
-      let getData = data?.data.response.results.filter((item: any) => {
-        if (item.result.docs.length > 0) {
-          return [...item.result.docs];
+      let getData = data?.data.response.results.filter(
+        (item: IRankBookList) => {
+          if (item.result.docs.length > 0) {
+            return [...item.result.docs];
+          }
         }
-      });
+      );
 
       let newResult = getData.reduce((prev: any, cur: any) => {
         return prev.concat(cur.result.docs);

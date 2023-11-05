@@ -2,6 +2,7 @@ import HorizontalList from "@components/ui/HorizontalList";
 import ImageCard from "@components/ui/ImageCard";
 import TitleBox from "@components/ui/TitleBox";
 import { useRecommendBooks } from "@hooks/useRecommendBooks";
+import { ILinkBookList } from "types/book";
 
 function RecommendBookList() {
   const onSuccess = () => {
@@ -32,7 +33,7 @@ function RecommendBookList() {
       />
 
       <HorizontalList>
-        {recommendBooks?.item.map((item: any, index: number) => {
+        {recommendBooks?.item.map((item: ILinkBookList) => {
           return (
             <ImageCard
               key={item.url}

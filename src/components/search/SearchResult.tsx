@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { MediaQuery } from "@style/media";
 import { styled } from "styled-components";
 import ImageCard from "@components/ui/ImageCard";
+import { IBookItem } from "types/book";
 
 const ListContainer = styled.div`
   display: grid;
@@ -23,7 +24,7 @@ const ListItem = styled.div`
 `;
 
 interface ISearchData {
-  resultData: any;
+  resultData: IBookItem[];
 }
 
 function SearchResult({ resultData }: ISearchData) {
@@ -33,7 +34,7 @@ function SearchResult({ resultData }: ISearchData) {
 
   return (
     <ListContainer>
-      {resultData?.map((data: any) => {
+      {resultData?.map((data: IBookItem) => {
         console.log("data", data);
         let { doc } = data;
         return (

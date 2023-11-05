@@ -1,8 +1,9 @@
+import { IBookItem } from "types/book";
 import { create } from "zustand";
 
 interface ISearch {
   searchKeyword: string;
-  searchResults: any;
+  searchResults: IBookItem[];
   setSearchKeyword: (text: string) => void;
   setSearchResult: (result: any) => void;
 }

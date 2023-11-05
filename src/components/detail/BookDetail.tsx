@@ -3,8 +3,8 @@ import { HeartIcon as HeartIconActive } from "@heroicons/react/24/solid";
 import { useBookDetail } from "@hooks/useBookDetail";
 import useLikeBookStore from "@store/likebook";
 import { MediaQuery } from "@style/media";
-import { useState } from "react";
 import { styled } from "styled-components";
+import { IBookDetail } from "types/book";
 
 const DetailContainer = styled.div`
   display: flex;
@@ -110,25 +110,25 @@ const LikeButton = styled.div`
 `;
 
 type BookDetailType = {
-  bookId?: any;
+  bookId?: number;
 };
 
 function BookDetail({ bookId = 0 }: BookDetailType) {
   const { likeBookList, setLikeBookList, resetLikeBookList } =
     useLikeBookStore();
 
-  const onClickLike = (data: any) => {
+  const onClickLike = (data: IBookDetail) => {
     console.log("onClickLike data -> ", data);
 
-    if (likeBookList[data.isbn13]) {
+    if (likeBookList[Number(data.isbn13)]) {
       console.log("좋아요를 이미 눌렀어요");
       const newLikeBookList = { ...likeBookList };
-      delete newLikeBookList[data.isbn13];
+      delete newLikeBookList[Number(data.isbn13)];
 
-      resetLikeBookList(data.isbn13, newLikeBookList);
+      resetLikeBookList(Number(data.isbn13), newLikeBookList);
     } else {
       console.log("좋아요");
-      setLikeBookList(data.isbn13, data);
+      setLikeBookList(Number(data.isbn13), data);
     }
   };
 
@@ -150,7 +150,7 @@ function BookDetail({ bookId = 0 }: BookDetailType) {
 
   console.log("bookDetail ->", bookDetail);
 
-  return bookDetail?.map((item: any) => {
+  return bookDetail?.map((item: { book: IBookDetail }) => {
     const { book } = item;
     return (
       <DetailContainer key={book.no}>
@@ -172,7 +172,7 @@ function BookDetail({ bookId = 0 }: BookDetailType) {
                   onClickLike(book);
                 }}
               >
-                {likeBookList[book.isbn13] ? (
+                {likeBookList[Number(book.isbn13)] ? (
                   <HeartIconActive width={25} />
                 ) : (
                   <HeartIcon width={25} />

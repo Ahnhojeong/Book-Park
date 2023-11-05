@@ -1,6 +1,7 @@
 import { useHotTrendBooks } from "@hooks/useHotTrendBooxs";
 import { MediaQuery } from "@style/media";
 import { styled } from "styled-components";
+import { IRankBookItem } from "types/book";
 
 interface IListItem {
   rank: number;
@@ -65,7 +66,7 @@ function TrendBookList() {
       <Span>오늘 기준 최근 7일간 대출 순위가 급상승한 도서 목록입니다.</Span>
       <ContainerBox>
         <ListContainer>
-          {trendBooks?.map((book: any, index: number) => {
+          {trendBooks?.map((book: { doc: IRankBookItem }, index: number) => {
             return (
               <ListItem key={book.doc.isbn13} rank={index + 1}>
                 {book.doc.bookname}

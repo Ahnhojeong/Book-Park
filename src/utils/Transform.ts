@@ -32,7 +32,7 @@ export const debounce = (callback: any, duration: number) => {
 };
 
 export function decodeEntity(contents: string) {
-  if (contents != undefined && contents != null && contents != "") {
+  if (contents !== undefined && contents != null && contents !== "") {
     contents = contents.replaceAll(/&lt;/g, "<").replaceAll(/&gt;/g, ">");
   }
   return contents;
